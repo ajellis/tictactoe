@@ -1,39 +1,28 @@
-require './board'
 require './position'
+require './board'
+require './player'
 
-@board =  [
-  [" ", " ", " "],
-  [" ", " ", " "],
-  [" ", " ", " "]
-]
+class Game
 
-def display_intro
-  puts ""
-  puts "Welcome to Tic Tac Toe! "
-  puts ""
-  puts " A1 | A2 | A3 "
-  puts "--------------"
-  puts " B1 | B2 | B3 "
-  puts "--------------"
-  puts " C1 | C2 | C3 "
-end
+  attr_reader :player1, :player2
 
-def board_spot
-  while @board.any? { |r| r.include?(" ") }
-    puts "Enter a position!"
-    location = gets.chomp.upcase
-    if @accepted_entry.include?(location)
-      puts "Nah, already taken bro. Pick another location."
-    elsif @positions.include?(location)
-    @accepted_entry << location
-    update_board(location)
-    print_board
-    elsif puts "That's not a valid location. Choose another."
-    end
+  def initialize
+    @player1 = player1
+    @player2 = player2
   end
-  puts "Game Over"
+
+  def begin
+    puts ""
+    puts "Welcome to Tic Tac Toe! "
+    puts ""
+    puts "Player 1, enter your name please:"
+    p1 = gets.chomp
+    @player1 = Player.new(p1)
+    puts "#{@player1}, sweet name!"
+    puts ""
+    puts "Player 2, What's your name?"
+    p1 = gets.chomp
+    @player2 - Player.new(p2)
+  end
+
 end
-
-
-display_intro
-board_spot
