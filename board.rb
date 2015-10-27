@@ -12,9 +12,9 @@ class Board
   def print_board
     (0..2).each do |r|
       print " "
-      (0..2).each do |c|
+      (0...2).each do |c|
         print @board[r][c]
-        print " | " unless c == 2
+        print " | "
       end
       print "\n"
       print " ---------\n" unless r == 2
@@ -23,26 +23,27 @@ class Board
   end
 
 
-
 winning_positions = [
-  ["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"],
-  ["1", "4", "7"], ["2", "5", "8"], ["3", "6", "9"],
-  ["1", "5", "9"], ["3", "5", "7"]
+  ["A1", "A2", "A3"], ["B1", "B2", "B3"], ["C1", "C2", "C3"],
+  ["A1", "B1", "C1"], ["A2", "B2", "C2"], ["A3", "B3", "C3"],
+  ["A1", "B2", "C3"], ["A3", "B2", "C1"]
 ]
 
 
 
 
+  puts ""
   puts "Welcome to Tic Tac Toe! Choose a position!"
-  puts " 1 | 2 | 3 "
-  puts "-----------"
-  puts " 4 | 5 | 6 "
-  puts "-----------"
-  puts " 7 | 8 | 9 "
+  puts ""
+  puts " A1 | A2 | A3 "
+  puts "--------------"
+  puts " B1 | B2 | B3 "
+  puts "--------------"
+  puts " C1 | C2 | C3 "
 
-    puts "Enter A Location!"
-    location = gets.chomp.upcase
-    positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+  location = gets.chomp.upcase
+  positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   if positions.include?(location)
     puts "Good Choice!"
   else
