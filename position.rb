@@ -5,7 +5,19 @@ class Position
     @counter = 0
     @accepted_entry = []
     @positions = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+    @board =  [
+      [" ", " ", " "],
+      [" ", " ", " "],
+      [" ", " ", " "]
+    ]
+    @winning_positions = [
+      ["A1", "A2", "A3"], ["B1", "B2", "B3"], ["C1", "C2", "C3"],
+      ["A1", "B1", "C1"], ["A2", "B2", "C2"], ["A3", "B3", "C3"],
+      ["A1", "B2", "C3"], ["A3", "B2", "C1"]
+    ]
   end
+
+
 
   def print_board
     (0..2).each do |row|
@@ -29,8 +41,8 @@ class Position
     input[1].to_i - 1
   end
 
-  def update_board(input)
-    @board[row(input)][col(input)] = "X"
+  def update_board(location)
+    @board[row(location)][col(location)] = "X"
   end
 
   def board_spot
@@ -43,8 +55,8 @@ class Position
       elsif @positions.include?(location)
       @accepted_entry << location
       @counter += 1
-      self.update_board(location)
-      self.print_board
+      update_board(location)
+      print_board
       elsif puts "That's not a valid location. Choose another."
       end
     end
