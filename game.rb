@@ -1,10 +1,10 @@
 require './position'
 require './board'
 require './player'
+require './tictac'
 
 class Game
 
-  attr_reader :player1, :player2
 
   def initialize
     @player1 = player1
@@ -22,7 +22,7 @@ class Game
     puts ""
     puts "Player 2, What's your name?"
     p1 = gets.chomp
-    @player2 - Player.new(p2)
+    @player2 = Player.new(p2)
   end
 
 end

@@ -48,29 +48,23 @@ class Position
 
   def board_spot
    while @counter <= 8
-   # while @board.any? { |row| row.include?(" ") }
      puts "Enter a position!"
-     location = gets.chomp.upcase
-     if @accepted_entries.include?(location)
+     @location = gets.chomp.upcase
+     if @accepted_entries.include?(@location)
        puts "Nah, already taken bro. Pick another location."
-     elsif @positions.include?(location)
-       @accepted_entries << location
+     elsif @positions.include?(@location)
+       @accepted_entries << @location
        @counter += 1
-       update_board(location)
+       update_board(@location)
        print_board
        @winning_positions.each do |array|
-          return puts "YOU WIN!" if @accepted_entries.include?(array[0]) && @accepted_entries.include?(array[1]) && @accepted_entries.include?(array[2])
+          return puts "YOU WIN! Congratulations!" if @accepted_entries.include?(array[0]) && @accepted_entries.include?(array[1]) && @accepted_entries.include?(array[2])
        end
      elsif puts "That's not a valid location. Choose another."
      end
    end
    puts "Game Over. It's a Tie!"
   end
-
-
-
-
-
 
 
 
