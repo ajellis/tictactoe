@@ -16,11 +16,12 @@ require './player'
     ["A1", "B2", "C3"], ["A3", "B2", "C1"]
   ]
 
+  @game_new = Game.new
+  @position_new = Position.new
+  @board_new = Board.new
 
- @position_new = Position.new
- @board_new = Board.new
+  @game_new.game_start
 
- @board_new.display_intro
- @board_new.print_board
+  @board_new.display_intro
 
- @position_new.board_spot
+  @position_new.board_spot
