@@ -1,3 +1,5 @@
+class Board
+  attr_accessor :position, :game
 
     @board =  [
       [" ", " ", " "],
@@ -5,9 +7,6 @@
       [" ", " ", " "]
     ]
 
-    @counter = 0
-
-    @accepted_entry = []
 
   def print_board
     (0..2).each do |row|
@@ -22,15 +21,6 @@
     print "\n"
   end
 
-  winning_positions = [
-    ["A1", "A2", "A3"], ["B1", "B2", "B3"], ["C1", "C2", "C3"],
-    ["A1", "B1", "C1"], ["A2", "B2", "C2"], ["A3", "B3", "C3"],
-    ["A1", "B2", "C3"], ["A3", "B2", "C1"]
-  ]
-
-  def updated_board
-
-  end
 
 
   def display_intro
@@ -83,14 +73,13 @@ def update_board(input)
 end
 
 def board_spot
-  positions = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
   while @board.any? { |r| r.include?(" ") }
     puts "Enter a position!"
     location = gets.chomp.upcase
     if @accepted_entry.include?(location)
       puts "Nah, already taken bro. Pick another location."
-    elsif positions.include?(location)
-    @accepted_entry << location  
+    elsif @positions.include?(location)
+    @accepted_entry << location
     update_board(location)
     print_board
     elsif puts "That's not a valid location. Choose another."
@@ -99,8 +88,4 @@ def board_spot
   puts "Game Over"
 end
 
-
-
-
-display_intro
-board_spot
+end
