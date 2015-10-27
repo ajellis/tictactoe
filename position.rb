@@ -54,13 +54,13 @@ class Position
      if @accepted_entries.include?(location)
        puts "Nah, already taken bro. Pick another location."
      elsif @positions.include?(location)
-     @accepted_entries << location
-     @counter += 1
-     update_board(location)
-     print_board
-     @winning_positions.each do |array|
-        return puts "YOU WIN!" if @accepted_entries.include?(array[0]) && @accepted_entries.include?(array[1]) && @accepted_entries.include?(array[2])
-     end
+       @accepted_entries << location
+       @counter += 1
+       update_board(location)
+       print_board
+       @winning_positions.each do |array|
+          return puts "YOU WIN!" if @accepted_entries.include?(array[0]) && @accepted_entries.include?(array[1]) && @accepted_entries.include?(array[2])
+       end
      elsif puts "That's not a valid location. Choose another."
      end
    end
