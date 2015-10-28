@@ -10,7 +10,7 @@ class Board
 
 
   def display_intro
-    puts "Welcome to Tic Tac Toe!"
+    puts ""
     puts "The Board positions are as follows."
     puts " A1 | A2 | A3 "
     puts "----+----+----"
